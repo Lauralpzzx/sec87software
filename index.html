@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>SEP - Selección de Módulo</title>
+
+  <!-- Modern Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+  <!-- Tailwind Config & Custom Styles -->
+  <script src="assets/js/tailwind-config.js"></script>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body class="bg-[#F4F6F9] font-sans text-gray-800 antialiased min-h-screen flex flex-col">
+  <!-- Institutional Header -->
+  <header class="w-full bg-[#691C32] text-white py-4 shadow-md border-b-[6px] border-[#BC955C] z-50 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-4">
+      <div class="flex items-center gap-4">
+        <h1 class="text-xl md:text-2xl font-bold tracking-widest uppercase font-['Montserrat',sans-serif]">
+          EDUCACIÓN
+        </h1>
+        <div class="hidden md:block w-px h-8 bg-white/30"></div>
+        <h2 class="text-sm md:text-base font-medium opacity-90 hidden sm:block font-['Montserrat',sans-serif]">
+          Secretaría de Educación Pública
+        </h2>
+      </div>
+      <div class="text-xs md:text-sm font-bold text-[#BC955C] tracking-widest uppercase px-3 py-1.5 bg-black/10 rounded border border-[#BC955C]/30">
+        Secundaria Técnica No. 87
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="flex-grow flex items-center justify-center p-4 py-8 md:py-12 relative w-full overflow-hidden">
+    <!-- Subtle Geo Background Pattern -->
+    <div class="absolute inset-0 opacity-[0.03] pointer-events-none" style="background-image: radial-gradient(#691C32 2px, transparent 2px); background-size: 32px 32px;"></div>
+
+    <div class="max-w-6xl w-full relative z-10">
+      <div class="text-center mb-10 md:mb-14">
+        <h2 class="text-3xl md:text-5xl font-bold text-[#285C4D] mb-4 font-['Montserrat',sans-serif] tracking-tight">Sistema de Gestión Escolar</h2>
+        <p class="text-gray-600 font-medium max-w-2xl mx-auto text-base md:text-lg px-4">Portal de acceso institucional para el control académico y administrativo de la Secundaria Técnica No. 87.</p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 w-full max-w-5xl mx-auto">
+        <!-- Directivos Card -->
+        <div class="bg-white rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-gray-100 overflow-hidden flex flex-col transition-all hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:-translate-y-1">
+          <div class="px-8 py-6 bg-[#691C32] text-white flex items-center justify-between">
+            <div>
+              <h3 class="text-xl md:text-2xl font-bold tracking-wide">Portal Personal</h3>
+              <p class="text-white/80 text-sm mt-1 uppercase tracking-wider text-[11px] font-bold">Directivos, Prefectos, Tutores</p>
+            </div>
+            <div class="p-3 bg-white/10 rounded-lg">
+              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+            </div>
+          </div>
+          
+          <div class="p-8 flex-grow flex flex-col">
+            <form id="staff-login-form" class="w-full mt-auto flex flex-col gap-6">
+              <div>
+                <label for="staff-email" class="block text-xs font-bold text-gray-700 mb-2 uppercase tracking-wider">Correo Institucional</label>
+                <input type="text" id="staff-email" placeholder="usuario@sep.gob.mx" required
+                  class="w-full px-4 py-3.5 rounded-lg border border-gray-300 focus:border-[#691C32] focus:ring-1 focus:ring-[#691C32] outline-none transition-all bg-gray-50 focus:bg-white text-gray-900 text-sm">
+              </div>
+              
+              <div>
+                <label for="staff-password" class="block text-xs font-bold text-gray-700 mb-2 uppercase tracking-wider">Contraseña</label>
+                <input type="password" id="staff-password" placeholder="••••••••" required
+                  class="w-full px-4 py-3.5 rounded-lg border border-gray-300 focus:border-[#691C32] focus:ring-1 focus:ring-[#691C32] outline-none transition-all bg-gray-50 focus:bg-white text-gray-900 text-sm">
+              </div>
+
+              <p id="staff-error" class="text-red-700 text-sm font-semibold hidden flex items-center gap-2 bg-red-50 p-3 rounded-lg border border-red-200">
+                <svg class="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path></svg>
+                Credenciales incorrectas.
+              </p>
+
+              <button type="submit"
+                class="w-full mt-4 flex items-center justify-center text-white font-bold text-sm uppercase tracking-widest gap-2 bg-[#691C32] hover:bg-[#521526] px-4 py-4 rounded-lg shadow-md transition-colors duration-200">
+                Ingresar al Sistema
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Alumnos Card -->
+        <div class="bg-white rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-gray-100 overflow-hidden flex flex-col transition-all hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:-translate-y-1">
+          <div class="px-8 py-6 bg-[#285C4D] text-white flex items-center justify-between">
+            <div>
+              <h3 class="text-xl md:text-2xl font-bold tracking-wide">Portal Alumnos</h3>
+              <p class="text-white/80 text-sm mt-1 uppercase tracking-wider text-[11px] font-bold">Credencial y Asistencia</p>
+            </div>
+            <div class="p-3 bg-white/10 rounded-lg">
+              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+            </div>
+          </div>
+          
+          <div class="p-8 flex-grow flex flex-col">
+            <form id="alumno-login-form" class="w-full mt-auto flex flex-col gap-6">
+              <div>
+                <label for="alumno-matricula" class="block text-xs font-bold text-gray-700 mb-2 uppercase tracking-wider">Matrícula (CURP)</label>
+                <input type="text" id="alumno-matricula" placeholder="18 caracteres" required
+                  class="w-full px-4 py-3.5 rounded-lg border border-gray-300 focus:border-[#285C4D] focus:ring-1 focus:ring-[#285C4D] outline-none transition-all bg-gray-50 focus:bg-white text-gray-900 uppercase text-sm">
+              </div>
+              
+              <div>
+                <label for="alumno-codigo" class="block text-xs font-bold text-gray-700 mb-2 uppercase tracking-wider">Código de Acceso / NIP</label>
+                <input type="password" id="alumno-codigo" placeholder="••••••••" required
+                  class="w-full px-4 py-3.5 rounded-lg border border-gray-300 focus:border-[#285C4D] focus:ring-1 focus:ring-[#285C4D] outline-none transition-all bg-gray-50 focus:bg-white text-gray-900 text-sm">
+              </div>
+
+              <p id="alumno-error" class="text-red-700 text-sm font-semibold hidden flex items-center gap-2 bg-red-50 p-3 rounded-lg border border-red-200">
+                <svg class="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path></svg>
+                Datos incorrectos.
+              </p>
+
+              <button type="submit"
+                class="w-full mt-4 flex items-center justify-center text-white font-bold text-sm uppercase tracking-widest gap-2 bg-[#285C4D] hover:bg-[#1f4a3d] px-4 py-4 rounded-lg shadow-md transition-colors duration-200">
+                Consultar Portal
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Institutional Footer -->
+  <footer class="w-full bg-white border-t border-gray-200 py-6 mt-auto">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-bold text-gray-500 uppercase tracking-widest">
+      <div>
+        © 2026 SECRETARÍA DE EDUCACIÓN PÚBLICA
+      </div>
+      <div class="flex gap-4 sm:gap-6 flex-wrap justify-center">
+        <a href="#" class="hover:text-[#691C32] transition-colors">AVISO DE PRIVACIDAD</a>
+        <span class="hidden sm:inline">•</span>
+        <a href="#" class="hover:text-[#691C32] transition-colors">TÉRMINOS DE USO</a>
+      </div>
+    </div>
+  </footer>
+  </div>
+  
+  <!-- Lógica de Conexión de API Local -->
+  <script type="module">
+    import { studentLogin, staffLogin } from './assets/js/api-client.js';
+
+    // Manejo del Login de Alumnos
+    document.getElementById('alumno-login-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      const btn = e.target.querySelector('button[type="submit"]');
+      const errorMsg = document.getElementById('alumno-error');
+      const matricula = document.getElementById('alumno-matricula').value.trim();
+      const codigo = document.getElementById('alumno-codigo').value.trim();
+      const defaultText = btn.innerHTML;
+
+      // Estado de carga
+      errorMsg.classList.add('hidden');
+      btn.innerHTML = `<svg class="animate-spin h-5 w-5 text-sepBurgundy" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> Conectando...`;
+      btn.classList.add('opacity-80', 'cursor-not-allowed');
+
+      try {
+        const student = await studentLogin(matricula, codigo);
+        if(student) {
+          localStorage.setItem('sep_session', JSON.stringify({
+            tipo: 'alumno',
+            id: student.id,
+            nombre: student.nombre + ' ' + (student.apellidos || ''),
+            matricula: student.matricula,
+            grupo: student.grupos ? student.grupos.grado + '° ' + student.grupos.grupo : 'Sin grupo'
+          }));
+          window.location.href = 'pages/alumnos/dashboard.html';
+        } else {
+           errorMsg.classList.remove('hidden');
+           btn.innerHTML = defaultText;
+           btn.classList.remove('opacity-80', 'cursor-not-allowed');
+        }
+      } catch(err) {
+        console.error(err);
+        errorMsg.textContent = "Error de conexión. Intente más tarde.";
+        errorMsg.classList.remove('hidden');
+        btn.innerHTML = defaultText;
+        btn.classList.remove('opacity-80', 'cursor-not-allowed');
+      }
+    });
+
+    // Manejo del Login de Staff (Directivos / Prefectos)
+    document.getElementById('staff-login-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      const btn = e.target.querySelector('button[type="submit"]');
+      const errorMsg = document.getElementById('staff-error');
+      const email = document.getElementById('staff-email').value.trim();
+      const password = document.getElementById('staff-password').value.trim();
+      const defaultText = btn.innerHTML;
+
+      // Estado de carga
+      errorMsg.classList.add('hidden');
+      btn.innerHTML = `<svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> Entrando...`;
+      btn.classList.add('opacity-80', 'cursor-not-allowed');
+
+      try {
+        const staff = await staffLogin(email, password);
+        if(staff) {
+          localStorage.setItem('sep_session', JSON.stringify({
+            tipo: staff.tipo_personal === 'tutor' ? 'tutor' : staff.rol,
+            id: staff.id,
+            nombre: staff.nombre
+          }));
+          // Redirección dependiendo del rol
+          if(staff.rol === 'director') {
+            window.location.href = 'pages/directivos/dashboard.html';
+          } else if(staff.rol === 'prefecto') {
+            window.location.href = 'pages/prefectos/dashboard.html';
+          } else {
+            window.location.href = 'pages/tutores/dashboard.html';
+          }
+        } else {
+           errorMsg.classList.remove('hidden');
+           btn.innerHTML = defaultText;
+           btn.classList.remove('opacity-80', 'cursor-not-allowed');
+        }
+      } catch(err) {
+        console.error(err);
+        errorMsg.textContent = "Error de conexión. Intente más tarde.";
+        errorMsg.classList.remove('hidden');
+        btn.innerHTML = defaultText;
+        btn.classList.remove('opacity-80', 'cursor-not-allowed');
+      }
+    });
+  </script>
+</body>
+
+</html>

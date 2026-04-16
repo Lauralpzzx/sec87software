@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.sidebar-transition { transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+/* Custom Scrollbar for a premium feel */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #E2E8F0; border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: #CBD5E1; }
+
+.glass-header {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.stagger-1 { animation-delay: 100ms; }
+.stagger-2 { animation-delay: 200ms; }
+.stagger-3 { animation-delay: 300ms; }
+
+/* Custom Scanner Styles for Asistencias */
+.scanner-line {
+  width: 100%;
+  height: 3px;
+  background: #D4AF37;
+  position: absolute;
+  top: 0;
+  animation: scan 2.5s infinite linear;
+  box-shadow: 0 0 15px 2px rgba(212, 175, 55, 0.8);
+  border-radius: 2px;
+}
+.scanner-glow {
+  box-shadow: inset 0 0 60px rgba(0,0,0,0.8);
+}
+@keyframes scan {
+  0% { top: 0; opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { top: 100%; opacity: 0; }
+}
+
+/* Custom QR Placeholder for Busqueda */
+.qr-placeholder {
+  background-image: linear-gradient(45deg, rgba(0,0,0,0.8) 25%, transparent 25%, transparent 75%, rgba(0,0,0,0.8) 75%, rgba(0,0,0,0.8)), 
+                    linear-gradient(45deg, rgba(0,0,0,0.8) 25%, transparent 25%, transparent 75%, rgba(0,0,0,0.8) 75%, rgba(0,0,0,0.8));
+  background-size: 10px 10px;
+  background-position: 0 0, 5px 5px;
+}
+
+/* Print Styles for Reportes */
+@media print {
+  body * { visibility: hidden; }
+  #printable-section, #printable-section * { visibility: visible; }
+  #printable-section { position: relative; left: 0; top: 0; width: 100%; }
+  .no-print { display: none !important; }
+}
+
+/* Shimmer animation */
+@keyframes shimmer {
+  0% { transform: skewX(-20deg) translateX(-150%); }
+  100% { transform: skewX(-20deg) translateX(250%); }
+}

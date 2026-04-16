@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>SEP - Búsqueda de Alumnos</title>
+  
+  <!-- Modern Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  
+  <!-- Tailwind Config & Custom Styles -->
+  <script src="../../assets/js/tailwind-config.js"></script>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+</head>
+
+<body class="bg-sepLightGray font-sans text-gray-800 antialiased selection:bg-sepGold selection:text-sepBurgundyDark">
+  <div class="flex h-screen overflow-hidden relative">
+    
+    <!-- Mobile Sidebar Overlay -->
+    <div id="sidebar-overlay" class="fixed inset-0 bg-sepBurgundyDark/40 backdrop-blur-sm z-30 hidden md:hidden transition-opacity duration-300"></div>
+
+    <!-- BEGIN: Premium Sidebar -->
+    <aside id="sidebar" class="w-72 bg-gradient-to-b from-sepBurgundyDark via-sepBurgundy to-sepBurgundyDark text-white flex-shrink-0 flex flex-col sidebar-transition absolute z-40 h-full transform -translate-x-full md:relative md:translate-x-0 shadow-2xl md:shadow-none border-r border-white/5">
+      
+      <!-- Institutional Logo Area -->
+      <div class="p-8 border-b border-white/10 flex flex-col items-center relative bg-black/10">
+        <button id="close-sidebar-btn" class="absolute top-4 right-4 md:hidden text-white/50 hover:text-white transition-colors">
+          <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
+        <div class="w-20 h-20 bg-gradient-to-tr from-sepGold to-yellow-200 rounded-2xl mb-4 flex items-center justify-center shadow-glow transform transition duration-500 hover:scale-105 hover:rotate-3 group cursor-pointer" onclick="window.location.href='dashboard.html'">
+          <span class="text-sepBurgundy font-heading font-black text-2xl tracking-tighter group-hover:text-sepBurgundyDark transition-colors">SEP</span>
+        </div>
+        <h1 class="text-xs font-bold text-center uppercase tracking-widest text-white/90 font-heading">Secretaría de Educación Pública</h1>
+        <p class="text-[10px] text-sepGold mt-2 font-semibold bg-black/30 px-3 py-1 rounded-full uppercase tracking-wider backdrop-blur-sm shadow-inner">Secundaria Técnica No. 87</p>
+      </div>
+
+      <!-- Navigation Links -->
+      <nav class="flex-1 px-4 py-6 space-y-2 overflow-y-auto">
+        <a class="flex items-center space-x-3 p-3.5 rounded-xl text-white/70 hover:text-white hover:bg-white/10 hover:translate-x-1 transition-all duration-300 group" href="dashboard.html">
+          <svg class="h-5 w-5 group-hover:text-sepGold transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path></svg>
+          <span class="font-medium tracking-wide">Inicio</span>
+        </a>
+        <a class="flex items-center space-x-3 p-3.5 rounded-xl text-white/70 hover:text-white hover:bg-white/10 hover:translate-x-1 transition-all duration-300 group" href="reportes.html">
+          <svg class="h-5 w-5 group-hover:text-sepGold transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+          <span class="font-medium tracking-wide">Reportes</span>
+        </a>
+        <a class="flex items-center space-x-3 p-3.5 rounded-xl text-white/70 hover:text-white hover:bg-white/10 hover:translate-x-1 transition-all duration-300 group" href="asistencias.html">
+          <svg class="h-5 w-5 group-hover:text-sepGold transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+          <span class="font-medium tracking-wide">Asistencia y Acceso</span>
+        </a>
+        <a class="flex items-center space-x-3 p-3.5 rounded-xl bg-gradient-to-r from-sepGold/20 to-transparent border-l-4 border-sepGold shadow-[inset_0_0_20px_rgba(212,175,55,0.05)] text-sepGold relative overflow-hidden" href="busqueda.html">
+          <div class="absolute inset-0 bg-white/5 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
+          <svg class="h-5 w-5 relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+          <span class="font-semibold relative z-10 font-heading tracking-wide">Búsqueda Alumnos</span>
+        </a>
+      </nav>
+
+      <!-- User Info Footer -->
+      <div class="p-5 bg-black/20 border-t border-white/10 backdrop-blur-sm">
+        <div class="flex items-center space-x-3 group cursor-pointer">
+          <div class="w-10 h-10 rounded-full bg-gradient-to-br from-sepGold to-yellow-600 flex items-center justify-center text-sepBurgundy font-bold shadow-md group-hover:shadow-glow transition-all duration-300">D</div>
+          <div class="overflow-hidden">
+            <p class="text-sm font-bold truncate text-white group-hover:text-sepGold transition-colors font-heading tracking-wide">Director General</p>
+            <p class="text-xs text-white/50 font-medium">Ciclo 2025-2026</p>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- BEGIN: Main Content Area -->
+    <main class="flex-1 flex flex-col overflow-y-auto w-full scroll-smooth">
+      
+      <!-- Top Header -->
+      <header class="glass-header shadow-sm h-20 flex items-center justify-between px-6 md:px-10 flex-shrink-0 sticky top-0 z-20 transition-all">
+        <div class="flex items-center">
+          <button id="mobile-menu-btn" class="md:hidden mr-4 text-sepBurgundy bg-sepBurgundy/5 p-2 rounded-lg hover:bg-sepBurgundy/10 transition-colors focus:outline-none">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+          </button>
+          <div>
+            <h2 class="text-xl md:text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-sepBurgundy to-sepBurgundyLight truncate font-heading tracking-tight">Expedientes y Alumnado</h2>
+            <p class="text-xs text-gray-400 font-medium hidden md:block">Búsqueda y Gestión Documental</p>
+          </div>
+        </div>
+        <div class="flex items-center space-x-4 md:space-x-6">
+          <button onclick="window.location.href='../../index.html'" class="bg-gradient-to-r from-gray-100 to-white text-gray-600 border border-gray-200 shadow-sm hover:shadow hover:border-gray-300 px-4 py-2 rounded-xl text-sm font-bold transition-all duration-300 hover:-translate-y-0.5 flex items-center gap-2">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path></svg>
+            <span class="hidden md:inline">Cerrar Sesión</span>
+          </button>
+        </div>
+      </header>
+
+      <div class="p-6 md:p-10 space-y-8 md:space-y-10 max-w-7xl mx-auto w-full">
+        
+        <!-- Search Bar Component -->
+        <section class="bg-white p-6 md:p-8 rounded-2xl shadow-soft border border-gray-100 flex flex-col animate-fade-in-up">
+          <h3 class="font-bold text-gray-800 text-lg mb-5 font-heading">Buscador Institucional de Alumnos</h3>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <div class="relative flex-1 group">
+              <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                <svg class="h-5 w-5 text-gray-400 group-focus-within:text-sepBurgundy transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+              </div>
+              <input type="text" class="pl-12 block w-full border-gray-200 rounded-xl focus:ring-sepBurgundy focus:border-sepBurgundy sm:text-sm py-3 shadow-sm bg-gray-50 focus:bg-white transition-all" placeholder="Ingresa nombre, apellidos, matrícula o CURP...">
+            </div>
+            <button class="bg-gradient-to-r from-sepBurgundy to-sepBurgundyLight text-white px-8 py-3 rounded-xl text-sm font-bold shadow-md shadow-sepBurgundy/20 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300">
+              Buscar
+            </button>
+          </div>
+          
+          <div class="mt-6 flex flex-wrap gap-2 items-center">
+            <span class="text-xs font-bold text-gray-400 uppercase tracking-wider mr-2">Filtros rápidos:</span>
+            <span class="px-3 py-1.5 bg-gray-100/80 text-gray-600 rounded-lg text-xs font-semibold cursor-pointer hover:bg-gray-200 hover:text-gray-800 transition-colors">1° Grado</span>
+            <span class="px-3 py-1.5 bg-gray-100/80 text-gray-600 rounded-lg text-xs font-semibold cursor-pointer hover:bg-gray-200 hover:text-gray-800 transition-colors">2° Grado</span>
+            <span class="px-3 py-1.5 bg-gray-100/80 text-gray-600 rounded-lg text-xs font-semibold cursor-pointer hover:bg-gray-200 hover:text-gray-800 transition-colors">3° Grado</span>
+            <span class="px-3 py-1.5 bg-red-50 text-red-600 rounded-lg text-xs font-bold border border-red-100 cursor-pointer hover:bg-red-100 transition-colors shadow-sm">Con Riesgo Académico</span>
+            <span class="px-3 py-1.5 bg-yellow-50 text-yellow-700 rounded-lg text-xs font-bold border border-yellow-200 cursor-pointer hover:bg-yellow-100 transition-colors shadow-sm">Reportes Disciplinarios</span>
+          </div>
+        </section>
+
+        <!-- Contenedor Principal de Resultados -->
+        <div id="search-results-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 animate-fade-in-up mt-8">
+          <!-- Empieza limpio como solicitó el usuario -->
+          <div class="col-span-full py-12 flex flex-col items-center justify-center text-gray-400 opacity-60">
+            <svg class="w-20 h-20 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+            <p class="text-lg font-bold">Ingresa los datos para buscar o selecciona un filtro superior.</p>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- MODAL DE REPORTES Y CITATORIOS -->
+  <div id="report-modal" class="hidden fixed inset-0 bg-black/60 backdrop-blur-sm z-[100] flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl w-full max-w-lg shadow-2xl overflow-hidden transform transition-all animate-fade-in-up">
+      <div class="bg-gradient-to-r from-sepBurgundy to-sepBurgundyLight px-6 py-5 flex justify-between items-center relative">
+        <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjIiIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSIvPjwvc3ZnPg==')] opacity-30"></div>
+        <h3 class="text-lg font-bold text-white relative z-10 flex items-center font-heading">
+          <svg class="w-5 h-5 mr-2 text-sepGold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+          Nuevo Reporte Disciplinario
+        </h3>
+        <button id="close-modal-btn" class="text-white/50 hover:text-white transition-colors relative z-10">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
+      </div>
+      <div class="p-6 md:p-8">
+        <div class="mb-5 bg-gray-50 border border-gray-100 p-4 rounded-xl flex items-center justify-between">
+           <span class="text-xs font-bold text-gray-400 uppercase">Alumno Involucrado:</span>
+           <span id="modal-student-name" class="font-bold text-gray-800 font-heading">---</span>
+        </div>
+        
+        <div class="space-y-5">
+          <input type="hidden" id="modal-student-id">
+          
+          <div>
+            <label class="block text-xs font-bold text-gray-500 uppercase mb-2">Clasificación del Reporte</label>
+            <select id="modal-report-type" class="w-full text-sm border-gray-200 rounded-xl focus:ring-sepBurgundy focus:border-sepBurgundy py-3 px-4 shadow-sm bg-white font-bold text-gray-700">
+              <option value="Citatorio a Tutor">Citatorio a Tutor</option>
+              <option value="Indisciplina en Aula">Indisciplina en Aula</option>
+              <option value="Faltas y Retardos Reiterados">Faltas Reiteradas / Rezago</option>
+              <option value="Agresión o Problemas Conductuales">Problemas Conductuales Mayores</option>
+            </select>
+          </div>
+          
+          <div>
+            <label class="block text-xs font-bold text-gray-500 uppercase mb-2">Descripción Detallada / Motivo</label>
+            <textarea id="modal-report-desc" rows="4" class="w-full text-sm border-gray-200 rounded-xl focus:ring-sepBurgundy focus:border-sepBurgundy py-3 px-4 shadow-sm bg-white resize-none" placeholder="Especifique con detalle lo sucedido o el motivo del citatorio..."></textarea>
+          </div>
+
+          <div>
+             <label class="block text-xs font-bold text-gray-500 uppercase mb-2">Firma del Formato (Su Nombre/Cargo)</label>
+             <input type="text" id="modal-report-author" class="w-full text-sm border-gray-200 rounded-xl focus:ring-sepBurgundy focus:border-sepBurgundy py-3 px-4 shadow-sm bg-white" placeholder="Ej. Prof. García (Matemáticas)">
+          </div>
+        </div>
+      </div>
+      
+      <div class="bg-gray-50 px-6 py-5 border-t border-gray-100 flex justify-end gap-3">
+         <button id="cancel-report-btn" class="px-5 py-2.5 rounded-xl text-sm font-bold text-gray-600 hover:bg-gray-200 transition-colors">Cancelar</button>
+         <button id="save-report-btn" class="bg-red-600 hover:bg-red-700 text-white px-5 py-2.5 rounded-xl text-sm font-bold shadow-md hover:shadow-lg transition-all flex items-center gap-2">
+            Generar Expediente
+         </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="../../assets/js/main.js"></script>
+  <script type="module">
+    import { searchStudents } from '../../assets/js/api-client.js';
+
+    const container = document.getElementById('search-results-container');
+    const searchInput = document.querySelector('input[placeholder*="Ingresa nombre"]');
+    const searchBtn = document.querySelector('button.bg-gradient-to-r');
+
+    // ── Render results from API ──────────────────────────────────────────────
+    async function renderResults(q = '', grado = '') {
+      container.innerHTML = `<div class="col-span-full py-12 text-center text-gray-400 font-bold">Buscando en la base de datos...</div>`;
+      const results = await searchStudents(q, grado, '');
+
+      if (results.length === 0) {
+        container.innerHTML = `<div class="col-span-full py-12 text-center text-gray-400">
+          <svg class="w-16 h-16 mx-auto mb-3 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          <p class="font-bold">No se encontraron resultados.</p>
+        </div>`;
+        return;
+      }
+
+      container.innerHTML = results.map(s => `
+        <div class="bg-white rounded-2xl shadow-soft border border-gray-100 p-6 flex flex-col hover:border-sepBurgundy/30 transition-colors">
+          <div class="w-12 h-12 bg-sepBurgundy/10 text-sepBurgundy rounded-full flex items-center justify-center font-bold text-xl mb-4 font-heading">${s.nombre_completo.substring(0,2).toUpperCase()}</div>
+          <h3 class="font-extrabold text-gray-800 text-lg leading-tight mb-2">${s.nombre_completo}</h3>
+          <p class="text-sm text-gray-500 flex justify-between"><span class="font-bold">Grado/Grupo:</span> <span class="bg-gray-100 px-2 rounded">${s.grado || '?'} ${s.grupo || ''}</span></p>
+          <p class="text-sm text-gray-500 mt-1 flex justify-between"><span class="font-bold">Matrícula:</span> <span>${s.matricula || '---'}</span></p>
+          <button
+            class="mt-5 w-full border border-red-200 bg-red-50 text-red-600 hover:bg-red-600 hover:text-white font-bold py-2 rounded-xl text-xs uppercase tracking-widest transition-colors open-report-modal"
+            data-id="${s.id}"
+            data-name="${s.nombre_completo}">
+            Levantar Reporte
+          </button>
+        </div>
+      `).join('');
+    }
+
+    // ── Search button events ─────────────────────────────────────────────────
+    if (searchBtn) searchBtn.addEventListener('click', () => renderResults(searchInput.value.trim(), ''));
+    if (searchInput) searchInput.addEventListener('keypress', e => { if (e.key === 'Enter') renderResults(searchInput.value.trim(), ''); });
+
+    // ── QUICK FILTER BUTTONS ─────────────────────────────────────────────────
+    document.querySelectorAll('.mt-6 span.cursor-pointer').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const txt = btn.textContent.trim();
+        if (txt.includes('Grado')) renderResults('', txt.split('°')[0] + '°');
+      });
+    });
+
+    // ── MODAL: event delegation on container (works even after innerHTML refresh)
+    const modal = document.getElementById('report-modal');
+
+    container.addEventListener('click', e => {
+      const btn = e.target.closest('.open-report-modal');
+      if (!btn) return;
+      document.getElementById('modal-student-id').value = btn.dataset.id;
+      document.getElementById('modal-student-name').textContent = btn.dataset.name;
+      modal.classList.remove('hidden');
+    });
+
+    const closeModal = () => {
+      modal.classList.add('hidden');
+      document.getElementById('modal-report-desc').value = '';
+      document.getElementById('modal-report-author').value = '';
+    };
+
+    document.getElementById('close-modal-btn').addEventListener('click', closeModal);
+    document.getElementById('cancel-report-btn').addEventListener('click', closeModal);
+    modal.addEventListener('click', e => { if (e.target === modal) closeModal(); }); // click outside
+
+    document.getElementById('save-report-btn').addEventListener('click', async () => {
+      const studentId = document.getElementById('modal-student-id').value;
+      const tipo      = document.getElementById('modal-report-type').value;
+      const desc      = document.getElementById('modal-report-desc').value.trim();
+      const autor     = document.getElementById('modal-report-author').value.trim() || 'Prefectura/Dirección';
+      const saveBtn   = document.getElementById('save-report-btn');
+
+      if (!desc) { alert('Debe incluir una descripción del reporte.'); return; }
+
+      saveBtn.textContent = 'Procesando...';
+      saveBtn.disabled = true;
+
+      try {
+        const { createReporteDisciplina } = await import('../../assets/js/api-client.js');
+        const result = await createReporteDisciplina(studentId, tipo, desc, autor);
+        if (result && result.success) {
+          alert('¡Reporte generado y archivado en la base de datos exitosamente!');
+          closeModal();
+        } else {
+          alert('Error al guardar: ' + (result?.error || 'Revisa que el servidor esté corriendo.'));
+        }
+      } catch(err) {
+        alert('Error de conexión: ' + err.message);
+      } finally {
+        saveBtn.textContent = 'Generar Expediente';
+        saveBtn.disabled = false;
+      }
+    });
+  </script>
+</body>
+</html>

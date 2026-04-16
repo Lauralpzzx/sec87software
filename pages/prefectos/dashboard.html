@@ -1,0 +1,133 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>SEP - Dashboard de Prefectura</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script src="../../assets/js/tailwind-config.js"></script>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+</head>
+<body class="bg-sepBeige font-sans text-gray-800 antialiased selection:bg-sepGold selection:text-sepBurgundyDark bg-fixed" >
+  <div class="flex h-screen overflow-hidden relative">
+    
+    <div id="sidebar-overlay" class="fixed inset-0 bg-sepBurgundyDark/40 backdrop-blur-sm z-30 hidden md:hidden transition-opacity duration-300"></div>
+
+    <aside id="sidebar" class="w-72 bg-sepGreenDark text-white flex-shrink-0 flex flex-col sidebar-transition absolute z-40 h-full transform -translate-x-full md:relative md:translate-x-0 shadow-2xl md:shadow-none border-r border-white/5">
+      
+      <div class="p-8 border-b border-white/10 flex flex-col items-center relative bg-black/10">
+        <button id="close-sidebar-btn" class="absolute top-4 right-4 md:hidden text-white/50 hover:text-white transition-colors">
+          <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
+        <div class="w-20 h-20 bg-gradient-to-tr from-sepGold to-sepGoldDark rounded-2xl mb-4 flex items-center justify-center shadow-md transform transition duration-500 hover:scale-105 hover:rotate-3 group cursor-pointer" onclick="window.location.href='dashboard.html'">
+          <span class="text-white font-heading font-black text-2xl tracking-tighter transition-colors">SEP</span>
+        </div>
+        <h1 class="text-xs font-bold text-center uppercase tracking-widest text-white/90 font-heading">Portal de Prefectura</h1>
+        <p class="text-[10px] text-sepGold mt-2 font-semibold bg-black/30 px-3 py-1 rounded-full uppercase tracking-wider backdrop-blur-sm shadow-inner">Secundaria Técnica No. 87</p>
+      </div>
+
+      <nav class="flex-1 px-4 py-6 space-y-2 overflow-y-auto">
+        <a class="flex items-center space-x-3 p-3.5 rounded-xl bg-gradient-to-r from-sepGold/20 to-transparent border-l-4 border-sepGold shadow-[inset_0_0_20px_rgba(188,149,92,0.05)] text-sepGold group relative overflow-hidden" href="dashboard.html">
+          <svg class="h-5 w-5 relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path></svg>
+          <span class="font-semibold relative z-10 font-heading tracking-wide">Panel Principal</span>
+        </a>
+        <a class="flex items-center space-x-3 p-3.5 rounded-xl text-white/70 hover:text-white hover:bg-white/10 hover:translate-x-1 transition-all duration-300 group" href="escaner.html">
+          <svg class="h-5 w-5 group-hover:text-sepGold transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm14 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z"></path></svg>
+          <span class="font-medium tracking-wide">Escáner QR Asistencia</span>
+        </a>
+        <a class="flex items-center space-x-3 p-3.5 rounded-xl text-white/70 hover:text-white hover:bg-white/10 hover:translate-x-1 transition-all duration-300 group" href="reportes.html">
+          <svg class="h-5 w-5 group-hover:text-sepGold transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+          <span class="font-medium tracking-wide">Gestión de Reportes</span>
+        </a>
+      </nav>
+
+      <div class="p-5 bg-black/20 border-t border-white/10 backdrop-blur-sm">
+        <div class="flex items-center space-x-3 group cursor-pointer">
+          <div class="w-10 h-10 rounded-full bg-gradient-to-br from-sepGold to-yellow-600 flex items-center justify-center text-white font-bold shadow-md group-hover:shadow-glow transition-all duration-300">P</div>
+          <div class="overflow-hidden">
+            <p id="sidebar-name" class="text-sm font-bold truncate text-white group-hover:text-sepGold transition-colors font-heading tracking-wide">Cargando...</p>
+            <p id="sidebar-role" class="text-xs text-white/50 font-medium">Prefecto</p>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <main class="flex-1 flex flex-col overflow-y-auto w-full scroll-smooth">
+      <header class="glass-header shadow-sm h-20 flex items-center justify-between px-6 md:px-10 flex-shrink-0 sticky top-0 z-20">
+        <div class="flex items-center">
+          <button id="mobile-menu-btn" class="md:hidden mr-4 text-sepBurgundy bg-sepBurgundy/5 p-2 rounded-xl hover:bg-sepBurgundy/10 hover:shadow-inner transition-all">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+          </button>
+          <div>
+            <h2 class="text-xl md:text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r text-sepGreenDark truncate font-heading tracking-tight drop-shadow-sm">Panel Modular de Prefectura</h2>
+            <p class="text-xs text-gray-400 font-medium hidden md:block">Gestión de Asistencias y Disciplina Escolar</p>
+          </div>
+        </div>
+        <div class="flex items-center space-x-4 md:space-x-6">
+          <button onclick="window.location.href='../../index.html'" class="bg-gradient-to-r from-gray-100 to-white text-gray-600 border border-gray-200 shadow-sm hover:shadow hover:border-gray-300 px-4 py-2 rounded-xl text-sm font-bold transition-all duration-300 hover:-translate-y-0.5 flex items-center gap-2">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path></svg>
+            <span class="hidden md:inline">Cerrar Sesión</span>
+          </button>
+        </div>
+      </header>
+
+      <div class="p-6 md:p-10 space-y-8 max-w-7xl mx-auto w-full">
+        <!-- Dashboard Stats -->
+        <section class="grid grid-cols-1 sm:grid-cols-3 gap-6 animate-fade-in-up">
+           <article class="bg-white p-6 rounded-2xl shadow-soft border border-gray-100 group">
+             <div class="flex justify-between items-start mb-4">
+                <span class="text-xs font-bold text-gray-400 uppercase tracking-widest">Retardos Registrados Hoy</span>
+                <div class="p-2 bg-yellow-50 rounded-lg text-yellow-500"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></div>
+             </div>
+             <span class="text-4xl font-black text-gray-800">14</span>
+           </article>
+           <article class="bg-white p-6 rounded-2xl shadow-soft border border-gray-100 group">
+             <div class="flex justify-between items-start mb-4">
+                <span class="text-xs font-bold text-gray-400 uppercase tracking-widest">Fallas y Reportes</span>
+                <div class="p-2 bg-sepBurgundy/10 rounded-lg text-sepBurgundy"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg></div>
+             </div>
+             <span class="text-4xl font-black text-gray-800">6</span>
+           </article>
+           <article class="bg-white p-6 rounded-2xl shadow-soft border border-gray-100 group">
+             <div class="flex justify-between items-start mb-4">
+                <span class="text-xs font-bold text-gray-400 uppercase tracking-widest">Registros QR Hoy</span>
+                <div class="p-2 bg-sepGold/10 rounded-lg text-sepGold"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm14 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z"></path></svg></div>
+             </div>
+             <span class="text-4xl font-black text-gray-800">320</span>
+           </article>
+        </section>
+
+        <!-- Actions -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-6">
+           <div class="bg-white rounded-3xl p-8 border border-gray-100 shadow-soft text-center flex flex-col items-center justify-center min-h-[250px] hover:border-sepGold transition-colors">
+              <div class="w-16 h-16 bg-sepGold/10 text-sepGold rounded-full flex items-center justify-center mb-4"><svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path></svg></div>
+              <h3 class="font-bold text-lg mb-2">Escáner de Asistencia QR</h3>
+              <p class="text-sm text-gray-500 mb-6 w-3/4">Usa la cámara de tu dispositivo para registrar la entrada y salida de los alumnos de manera instantánea.</p>
+              <button onclick="window.location.href='escaner.html'" class="bg-sepBurgundy hover:bg-sepBurgundyDark text-white font-bold py-3 px-8 rounded-xl shadow-lg transition-transform hover:-translate-y-1 tracking-wide">Abrir Escáner</button>
+           </div>
+           <div class="bg-white rounded-3xl p-8 border border-gray-100 shadow-soft text-center flex flex-col items-center justify-center min-h-[250px] hover:border-sepBurgundy transition-colors">
+              <div class="w-16 h-16 bg-sepBurgundy/10 text-sepBurgundy rounded-full flex items-center justify-center mb-4"><svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg></div>
+              <h3 class="font-bold text-lg mb-2">Nuevo Reporte de Conducta</h3>
+              <p class="text-sm text-gray-500 mb-6 w-3/4">Genera un reporte disciplinario y notifícalo inmediatamente al tutor asignado.</p>
+              <button onclick="window.location.href='reportes.html'" class="bg-sepBurgundy hover:bg-sepBurgundyLight text-white font-bold py-3 px-8 rounded-xl shadow-lg transition-transform hover:-translate-y-1 tracking-wide">Redactar Reporte</button>
+           </div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <script src="../../assets/js/main.js"></script>
+  <script type="module">
+    import { checkAuth } from '../../assets/js/auth-guard.js';
+    document.addEventListener('DOMContentLoaded', () => {
+      const session = checkAuth(['prefecto']);
+      if(session) {
+        document.getElementById('sidebar-name').textContent = session.nombre || 'Prefecto';
+      }
+    });
+  </script>
+</body>
+</html>
